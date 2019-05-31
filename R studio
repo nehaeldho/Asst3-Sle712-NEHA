@@ -1,3 +1,28 @@
+GENE EXPRESSION
+
+
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/week10_files/gene_expression.tsv", destfile= "gene_expression.tsv")
+x<-read.table("gene_expression.tsv",header=T,row.names = 1)
+str(x)
+x
+
+x<-as.data.frame(x)
+x$mean<-rowMeans(x)
+x
+
+s<-x[order(-x$mean),]
+head(s,10)
+
+which(x[,3]<10)
+dim((x[which(x[,3]<10),]))
+
+pairs(x)
+x
+
+--------------------------------------------------------------------------------------------------------------------------------
+GROWTH DATA
+
+
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/week10_files/growth_data.csv",destfile = "growth_data.csv")
 x<-read.table("growth_data.csv",header=T,sep=",",stringsAsFactors=F)
 str(x)
